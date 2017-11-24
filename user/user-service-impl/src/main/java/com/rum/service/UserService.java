@@ -4,17 +4,16 @@
  */
 package com.rum.service;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.rum.dao.UserDao;
+import com.rum.helper.PageInfoHelper;
 import com.rum.model.User;
 import com.rum.model.UserExample;
 import com.rum.service.vo.UserListVO;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -31,13 +30,9 @@ public class UserService {
      * 查询用户列表
      * @return
      */
-    public List<UserListVO> queryUsers() {
-        PageHelper.startPage(1, 2);
-        List<User> users = userDao.selectByExample(new UserExample());
-        return users.stream().map(user -> {
-            UserListVO vo = new UserListVO();
-            BeanUtils.copyProperties(user, vo);
-            return vo;
-        }).collect(Collectors.toList());
+    public PageInfo<UserListVO> queryUsers() {
+        PageHelper.startPage(2, 2);
+        Page<User> userPage = (Page<User>) userDao.selectByExample(new UserExample());
+        return PageInfoHelper.create(userPage, UserListVO.class);
     }
 }

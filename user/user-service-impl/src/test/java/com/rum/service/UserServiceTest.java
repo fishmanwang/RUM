@@ -4,6 +4,7 @@
  */
 package com.rum.service;
 
+import com.github.pagehelper.PageInfo;
 import com.rum.service.vo.UserListVO;
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,8 +12,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
 
 /**
  *
@@ -28,7 +27,7 @@ public class UserServiceTest {
 
     @Test
     public void testQueryUser() {
-        List<UserListVO> users = userService.queryUsers();
-        Assert.assertTrue(users.size() != 0);
+        PageInfo<UserListVO> pageInfo = userService.queryUsers();
+        Assert.assertTrue(pageInfo.getList().size() != 0);
     }
 }
