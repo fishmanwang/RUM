@@ -13,8 +13,8 @@
     <artifactId>user</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>user-service-api</module>
-        <module>user-service-impl</module>
+        <module>user-service-facade</module>
+        <module>user-service</module>
     </modules>
 
 
