@@ -176,11 +176,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserVo> queryUserUser(UserQueryParam param, PageBounds pb) {
+    public List<UserVo> queryUser(UserQueryParam param, PageBounds pb) {
         Preconditions.checkNotNull(param);
         Preconditions.checkNotNull(pb);
 
         return userExtDao.queryUser(param.getName(), pb);
     }
-
 }

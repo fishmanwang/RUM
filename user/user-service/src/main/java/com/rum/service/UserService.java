@@ -73,6 +73,6 @@ public interface UserService {
      * @param pb
      * @return
      */
-    List<UserVo> queryUserUser(UserQueryParam param, PageBounds pb);
+    List<UserVo> queryUser(UserQueryParam param, PageBounds pb);
 
 }
