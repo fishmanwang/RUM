@@ -8,6 +8,9 @@
     <classPathEntry location="${drive.class.path}"/>
 
     <context id="context1" defaultModelType="flat">
+
+        <plugin type="com.mybatis.plugin.PageBoundsPlugin"></plugin>
+
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true"/>

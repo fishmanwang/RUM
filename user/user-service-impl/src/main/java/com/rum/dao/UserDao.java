@@ -1,5 +1,6 @@
 package com.rum.dao;
 
+import com.mybatis.domain.PageBounds;
 import com.rum.model.User;
 import com.rum.model.UserExample;
 import java.util.List;
@@ -13,6 +14,8 @@ public interface UserDao {
     int insert(User record);
 
     int insertSelective(User record);
+
+    List<User> selectByExampleWithPageBounds(UserExample example, PageBounds pageBounds);
 
     List<User> selectByExample(UserExample example);
 
