@@ -4,9 +4,17 @@
  */
 package com.rum.service;
 
+import com.mybatis.domain.PageBounds;
+import com.mybatis.domain.PageList;
+import com.mybatis.util.PageListHelper;
 import com.rum.dao.UserDao;
+import com.rum.model.User;
+import com.rum.model.UserExample;
+import com.rum.service.vo.UserListVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
@@ -23,9 +31,9 @@ public class UserService {
      * 查询用户列表
      * @return
      */
-    //    public PageInfo<UserListVO> queryUsers() {
-    //        PageHelper.startPage(2, 2);
-    //        Page<User> userPage = (Page<User>) userDao.selectByExample(new UserExample());
-    //        return PageInfoHelper.create(userPage, UserListVO.class);
-    //    }
+    public PageList<UserListVO> queryUsers() {
+        PageBounds pb = new PageBounds(2, 2);
+        List<User> users = userDao.selectByExampleWithPageBounds(new UserExample(), pb);
+        return PageListHelper.create(users, UserListVO.class);
+    }
 }
