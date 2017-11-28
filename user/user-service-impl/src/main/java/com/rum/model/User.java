@@ -3,21 +3,31 @@ package com.rum.model;
 import java.util.Date;
 
 public class User {
-    private Long id;
+    private Integer id;
 
     private String username;
 
     private String password;
 
-    private Date gmtCreate;
+    private String salt;
 
-    private Date gmtModified;
+    private Integer frozen;
 
-    public Long getId() {
+    private String lastLoginIp;
+
+    private Date lastLoginTime;
+
+    private String remark;
+
+    private Date createTime;
+
+    private Date updateTime;
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -37,19 +47,59 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
-    public Date getGmtCreate() {
-        return gmtCreate;
+    public String getSalt() {
+        return salt;
     }
 
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
     }
 
-    public Date getGmtModified() {
-        return gmtModified;
+    public Integer getFrozen() {
+        return frozen;
     }
 
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
+    public void setFrozen(Integer frozen) {
+        this.frozen = frozen;
+    }
+
+    public String getLastLoginIp() {
+        return lastLoginIp;
+    }
+
+    public void setLastLoginIp(String lastLoginIp) {
+        this.lastLoginIp = lastLoginIp == null ? null : lastLoginIp.trim();
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
