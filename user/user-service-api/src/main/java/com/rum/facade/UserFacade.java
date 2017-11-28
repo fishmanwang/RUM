@@ -2,22 +2,21 @@
  * BBD Service Inc
  * All Rights Reserved @2016
  */
-package com.rum.service;
+package com.rum.facade;
 
 import com.mybatis.domain.PageBounds;
-import com.rum.dao.vo.UserVo;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.param.UserRegisterParam;
-import com.rum.model.User;
+import com.rum.facade.vo.UserVo;
 
 import java.util.List;
 
 /**
- * 用户服务
+ *
  * @author tjwang
- * @version $Id: UserService.java, v 0.1 2017/8/4 0004 16:01 tjwang Exp $
+ * @version $Id: UserFacade.java, v 0.1 2017/11/28 0028 17:13 tjwang Exp $
  */
-public interface UserService {
+public interface UserFacade {
 
     /**
      * 修改用户密码
@@ -43,7 +42,7 @@ public interface UserService {
      * @param username
      * @return
      */
-    User findUserByUsername(String username);
+    UserVo findUserByUsername(String username);
 
     /**
      * 删除用户

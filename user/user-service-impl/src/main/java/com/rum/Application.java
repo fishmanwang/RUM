@@ -7,12 +7,16 @@ package com.rum;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 /**
  *
  * @author tjwang
  * @version $Id: Application.java, v 0.1 2017/11/24 0024 14:57 tjwang Exp $
  */
+@EnableFeignClients
+@EnableDiscoveryClient
 @SpringBootApplication
 @MapperScan("com.rum.dao")
 public class Application {

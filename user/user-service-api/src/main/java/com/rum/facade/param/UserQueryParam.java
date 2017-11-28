@@ -2,7 +2,7 @@
  * BBD Service Inc
  * All Rights Reserved @2016
  */
-package com.rum.dao.param;
+package com.rum.facade.param;
 
 /**
  * @author tjwang
