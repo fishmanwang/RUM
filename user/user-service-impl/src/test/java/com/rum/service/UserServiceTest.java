@@ -4,9 +4,6 @@
  */
 package com.rum.service;
 
-import com.mybatis.domain.PageList;
-import com.rum.service.vo.UserListVO;
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,7 +19,6 @@ public class UserServiceTest extends BaseServiceTest {
 
     @Test
     public void testQueryUser() {
-        PageList<UserListVO> users = userService.queryUsers();
-        Assert.assertTrue(users.size() != 0);
+
     }
 }

@@ -183,6 +183,11 @@ public class UserService {
         return user.getId();
     }
 
+    /**
+     * 更新登录信息
+     * @param userId
+     * @param ip
+     */
     public void updateLoginInfo(Integer userId, String ip) {
         User user = new User();
         user.setId(userId);
@@ -198,7 +203,7 @@ public class UserService {
      * @param pb
      * @return
      */
-    public List<UserVo> queryUserAdminUser(UserQueryParam param, PageBounds pb) {
+    public List<UserVo> queryUserUser(UserQueryParam param, PageBounds pb) {
         Preconditions.checkNotNull(param);
         Preconditions.checkNotNull(pb);
 
