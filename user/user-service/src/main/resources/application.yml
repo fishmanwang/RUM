@@ -8,13 +8,6 @@ server:
 mybatis:
   mapperLocations: classpath:mapper/*.xml
 
-#pagehelper分页插件配置
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-
 spring:
     application:
       name: user-service
@@ -45,7 +38,7 @@ spring:
         poolPreparedStatements: true
         maxPoolPreparedStatementPerConnectionSize: 20
         # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
-        #spring.datasource.filters: stat,wall,log4j
+        #rum.datasource.filters: stat,wall,log4j
         spring.datasource.filters: stat
         # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
         connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=1000

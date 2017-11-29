@@ -26,7 +26,7 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!-- spring 相关 -->
+        <!-- rum 相关 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -67,7 +67,7 @@
             </plugin>
             <!--<plugin>-->
             <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--<artifactId>rum-boot-maven-plugin</artifactId>-->
             <!--</plugin>-->
         </plugins>
     </build>
