@@ -4,17 +4,19 @@
  */
 package com.rum.controller;
 
+import com.mybatis.domain.PageBounds;
 import com.mybatis.domain.Paginator;
 import com.mybatis.util.PageListHelper;
 import com.rum.bean.RestResult;
 import com.rum.controller.vo.UserView;
-import com.rum.dao.vo.UserVo;
+import com.rum.facade.UserFacade;
 import com.rum.facade.param.UserQueryParam;
+import com.rum.facade.vo.UserVo;
 import com.rum.service.UserService;
 import com.rum.util.BeanMapperUtil;
+import com.rum.utils.PageBoundsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,21 +26,21 @@ import java.util.List;
  * @version $Id: UserController.java, v 0.1 2017/9/6 0006 10:00 tjwang Exp $
  */
 @RestController
-@RequestMapping("/user")
-public class UserController extends AbstractController {
+public class UserController implements UserFacade {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/query")
-    public RestResult queryUsers(UserQueryParam param) {
-        List<UserVo> ds = userService.queryUser(param, getPageBounds());
+    @Override
+    public RestResult queryUsers(@RequestBody(required = true) UserQueryParam param) {
+        PageBounds pb = PageBoundsHelper.create(param);
+        List<UserVo> ds = userService.queryUser(param, pb);
         Paginator p = PageListHelper.getPaginator(ds);
         List<UserView> rs = BeanMapperUtil.mapList(ds, UserView.class);
         return RestResult.ok(PageListHelper.create(rs, p));
     }
 
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @Override
     public RestResult deleteUser(Integer userId) {
         userService.deleteUser(userId);
         return RestResult.ok();

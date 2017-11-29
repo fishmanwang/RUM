@@ -32,8 +32,22 @@ public class PageBoundsHelper {
         if (pageInfo == null) {
             return pb;
         }
-        pb.setPage(pageInfo.getPage());
-        pb.setLimit(pageInfo.getLimit());
+
+        Integer page = pageInfo.getPage();
+        Integer limit = pageInfo.getLimit();
+
+        page = page == null ? 1 : page;
+        limit = limit == null ? 10 : limit;
+
+        if (page < 1) {
+            page = 1;
+        }
+        if (limit <= 0) {
+            limit = 10;
+        }
+        pb.setPage(page);
+        pb.setLimit(limit);
+        pb.setContainsTotalCount(true);
 
         String order = pageInfo.getOrder();
         if (StringUtils.isBlank(order)) {

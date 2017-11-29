@@ -4,67 +4,25 @@
  */
 package com.rum.facade;
 
-import com.rum.bean.PageInfo;
+import com.rum.bean.RestResult;
 import com.rum.facade.param.UserQueryParam;
-import com.rum.facade.param.UserRegisterParam;
-import com.rum.facade.vo.UserVo;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- *
+ * 用户服务访问门面
  * @author tjwang
  * @version $Id: UserFacade.java, v 0.1 2017/11/28 0028 17:13 tjwang Exp $
  */
+@RequestMapping("/user")
 public interface UserFacade {
 
-    /**
-     * 修改用户密码
-     * @param userId
-     * @param oldPwd
-     * @param newPwd
-     * @param newPwdConfirm
-     */
-    void modifyPassword(Integer userId, String oldPwd, String newPwd, String newPwdConfirm);
+    @RequestMapping(value = "/query", method = RequestMethod.POST)
+    RestResult queryUsers(@RequestBody UserQueryParam param);
 
-    /**
-     * 管理员重置密码
-     * @param userId
-     * @param salt
-     * @param newPwd
-     * @param newPwdConfirm
-     * @param administratorId
-     */
-    void adminResetPassword(Integer userId, String salt, String newPwd, String newPwdConfirm, String administratorId);
-
-    /**
-     * 删除用户
-     *
-     * @param userId
-     */
-    void deleteUser(Integer userId);
-
-    /**
-     * 注册用户
-     * @param param
-     * @return
-     */
-    Integer registerUser(UserRegisterParam param);
-
-    /**
-     * 更新登录信息
-     * @param userId
-     * @param ip
-     */
-    void updateLoginInfo(Integer userId, String ip);
-
-    /**
-     * 管理端查询用户
-     *
-     * @param param
-     * @param pb
-     * @return
-     */
-    List<UserVo> queryUserUser(UserQueryParam param, PageInfo pb);
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    RestResult deleteUser(@RequestParam("userId") Integer userId);
 
 }

@@ -15,12 +15,20 @@ public class PageInfo {
     private int    page  = 1;
 
     /** 分页大小 */
-    private int    limit = Integer.MAX_VALUE;
+    private int    limit = 10;
 
     /**
      * 排序 : column:[asc|desc],column:[asc|desc]
      */
     private String order;
+
+    public PageInfo() {
+    }
+
+    public PageInfo(int page, int limit) {
+        this.page = page;
+        this.limit = limit;
+    }
 
     public int getPage() {
         return page;

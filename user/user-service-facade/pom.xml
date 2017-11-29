@@ -12,7 +12,7 @@
     <artifactId>user-service-facade</artifactId>
 
     <dependencies>
-        
+
         <dependency>
             <groupId>com.rum</groupId>
             <artifactId>common-utils</artifactId>
@@ -24,10 +24,10 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-feign</artifactId>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.cloud</groupId>-->
+        <!--<artifactId>spring-cloud-starter-feign</artifactId>-->
+        <!--</dependency>-->
 
     </dependencies>
 
