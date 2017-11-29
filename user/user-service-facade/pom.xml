@@ -12,10 +12,10 @@
     <artifactId>user-service-facade</artifactId>
 
     <dependencies>
-
+        
         <dependency>
             <groupId>com.rum</groupId>
-            <artifactId>common-dao</artifactId>
+            <artifactId>common-utils</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

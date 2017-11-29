@@ -1,4 +1,4 @@
-package com.rum.vo;
+package com.rum.bean;
 
 /**
  * 接口服务结果

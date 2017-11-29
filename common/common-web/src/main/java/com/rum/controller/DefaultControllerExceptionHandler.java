@@ -1,8 +1,8 @@
 package com.rum.controller;
 
+import com.rum.bean.RestResult;
 import com.rum.exception.ApplicationException;
 import com.rum.exception.CommonErrorCode;
-import com.rum.vo.RestResult;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

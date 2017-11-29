@@ -4,7 +4,7 @@
  */
 package com.rum.facade;
 
-import com.mybatis.domain.PageBounds;
+import com.rum.bean.PageInfo;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.param.UserRegisterParam;
 import com.rum.facade.vo.UserVo;
@@ -38,13 +38,6 @@ public interface UserFacade {
     void adminResetPassword(Integer userId, String salt, String newPwd, String newPwdConfirm, String administratorId);
 
     /**
-     * 通过用户名查询用户
-     * @param username
-     * @return
-     */
-    UserVo findUserByUsername(String username);
-
-    /**
      * 删除用户
      *
      * @param userId
@@ -72,6 +65,6 @@ public interface UserFacade {
      * @param pb
      * @return
      */
-    List<UserVo> queryUserUser(UserQueryParam param, PageBounds pb);
+    List<UserVo> queryUserUser(UserQueryParam param, PageInfo pb);
 
 }

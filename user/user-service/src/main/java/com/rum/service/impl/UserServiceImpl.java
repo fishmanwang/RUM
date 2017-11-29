@@ -100,8 +100,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
-    public User findUserByUsername(String username) {
+    private User findUserByUsername(String username) {
         UserExample example = new UserExample();
         example.createCriteria().andUsernameEqualTo(username);
         List<User> list = userDao.selectByExample(example);

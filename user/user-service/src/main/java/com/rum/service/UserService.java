@@ -8,7 +8,6 @@ import com.mybatis.domain.PageBounds;
 import com.rum.dao.vo.UserVo;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.param.UserRegisterParam;
-import com.rum.model.User;
 
 import java.util.List;
 
@@ -37,13 +36,6 @@ public interface UserService {
      * @param administratorId
      */
     void adminResetPassword(Integer userId, String salt, String newPwd, String newPwdConfirm, String administratorId);
-
-    /**
-     * 通过用户名查询用户
-     * @param username
-     * @return
-     */
-    User findUserByUsername(String username);
 
     /**
      * 删除用户

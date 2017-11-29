@@ -6,12 +6,12 @@ package com.rum.controller;
 
 import com.mybatis.domain.Paginator;
 import com.mybatis.util.PageListHelper;
+import com.rum.bean.RestResult;
 import com.rum.controller.vo.UserView;
 import com.rum.dao.vo.UserVo;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.service.UserService;
 import com.rum.util.BeanMapperUtil;
-import com.rum.vo.RestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
