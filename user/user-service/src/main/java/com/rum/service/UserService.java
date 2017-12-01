@@ -7,7 +7,7 @@ package com.rum.service;
 import com.mybatis.domain.PageBounds;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.param.UserRegisterParam;
-import com.rum.facade.vo.UserVo;
+import com.rum.service.vo.UserVo;
 
 import java.util.List;
 

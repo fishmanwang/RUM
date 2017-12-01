@@ -1,71 +1,89 @@
 package com.rum.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * 接口服务结果
  *
- * @author jintao
+ * @author tjwang
  */
-public class RestResult {
-    /**
-     * 成功代码
-     */
-    public static final int CODE_SUCCESS = 200;
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class RestResult<T> implements Serializable {
 
     /**
      * 处理完成后的消息
      */
-    public String           message      = "";
+    public String         message = "";
+    /**
+     * 是否成功
+     */
+    private boolean       success;
     /**
      * 处理结果代码
      */
-    private int             status;
-
-    private Object          data;
-
-    public RestResult() {
-        this.status = CODE_SUCCESS;
-        this.message = "ok";
-    }
+    private int           status;
 
     /**
-     * 成功的情况返回
-     *
-     * @param data
+     * 单个值
      */
-    public RestResult(Object data) {
-        this.status = CODE_SUCCESS;
+    private T             data;
+
+    /**
+     * 多个值
+     */
+    private List<T>       dataList;
+
+    /**
+     * 带分页值
+     */
+    private PageResult<T> pageResult;
+
+    public RestResult() {
+        this.success = true;
         this.message = "ok";
-        this.data = data;
     }
 
     public RestResult(int status, String message) {
+        this.success = false;
         this.status = status;
         this.message = message;
-    }
-
-    /**
-     * 失败的情况返回
-     */
-    public RestResult(int status, String message, Object data) {
-        this.status = status;
-        this.message = message;
-        this.data = data;
     }
 
     public static RestResult ok() {
         return new RestResult();
     }
 
-    public static RestResult ok(Object data) {
-        return new RestResult(data);
+    public static <T> RestResult ok(T data) {
+        RestResult result = new RestResult();
+        result.setData(data);
+        return result;
+    }
+
+    public static <T> RestResult<T> ok(List<T> data) {
+        RestResult result = new RestResult();
+        result.setDataList(data);
+        return result;
+    }
+
+    public static <T> RestResult<T> ok(PageResult<T> data) {
+        RestResult result = new RestResult();
+        result.setPageResult(data);
+        return result;
     }
 
     public static RestResult fail(int status, String message) {
         return new RestResult(status, message);
     }
 
-    public static RestResult fail(int status, String message, Object data) {
-        return new RestResult(status, message, data);
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 
     public String getMessage() {
@@ -84,11 +102,27 @@ public class RestResult {
         this.status = status;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
+    }
+
+    public List<T> getDataList() {
+        return dataList;
+    }
+
+    public void setDataList(List<T> dataList) {
+        this.dataList = dataList;
+    }
+
+    public PageResult<T> getPageResult() {
+        return pageResult;
+    }
+
+    public void setPageResult(PageResult<T> pageResult) {
+        this.pageResult = pageResult;
     }
 }

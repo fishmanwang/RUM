@@ -5,7 +5,7 @@
 package com.rum.dao;
 
 import com.mybatis.domain.PageBounds;
-import com.rum.facade.vo.UserVo;
+import com.rum.service.vo.UserVo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

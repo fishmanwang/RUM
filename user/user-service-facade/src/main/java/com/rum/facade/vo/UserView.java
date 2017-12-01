@@ -4,15 +4,17 @@
  */
 package com.rum.facade.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /**
  * 管理平台用户POJO
  *
  * @author tjwang
- * @version $Id: UserVo.java, v 0.1 2017/9/6 0006 10:12 tjwang Exp $
+ * @version $Id: UserAdminVo.java, v 0.1 2017/9/6 0006 10:12 tjwang Exp $
  */
-public class UserVo {
+public class UserView {
 
     private Integer id;
 
@@ -28,6 +30,7 @@ public class UserVo {
 
     private String  lastLoginIp;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date    lastLoginTime;
 
     public Integer getId() {

@@ -2,9 +2,7 @@
  * BBD Service Inc
  * All Rights Reserved @2016
  */
-package com.rum.controller.vo;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
+package com.rum.service.vo;
 
 import java.util.Date;
 
@@ -12,9 +10,9 @@ import java.util.Date;
  * 管理平台用户POJO
  *
  * @author tjwang
- * @version $Id: UserAdminVo.java, v 0.1 2017/9/6 0006 10:12 tjwang Exp $
+ * @version $Id: UserVo.java, v 0.1 2017/9/6 0006 10:12 tjwang Exp $
  */
-public class UserView {
+public class UserVo {
 
     private Integer id;
 
@@ -30,7 +28,6 @@ public class UserView {
 
     private String  lastLoginIp;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date    lastLoginTime;
 
     public Integer getId() {

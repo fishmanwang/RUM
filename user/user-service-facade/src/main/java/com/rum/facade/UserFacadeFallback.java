@@ -6,6 +6,7 @@ package com.rum.facade;
 
 import com.rum.bean.RestResult;
 import com.rum.facade.param.UserQueryParam;
+import com.rum.facade.vo.UserView;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserFacadeFallback implements UserFacade {
 
     @Override
-    public RestResult queryUsers(@RequestBody(required = false) UserQueryParam param) {
+    public RestResult<UserView> queryUsers(@RequestBody(required = false) UserQueryParam param) {
         return RestResult.fail(101, "查询用户失败");
     }
 

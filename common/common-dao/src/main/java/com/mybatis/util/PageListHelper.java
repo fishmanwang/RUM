@@ -4,8 +4,10 @@
  */
 package com.mybatis.util;
 
+import com.google.common.collect.Lists;
 import com.mybatis.domain.PageList;
 import com.mybatis.domain.Paginator;
+import com.rum.bean.PageResult;
 import com.rum.util.BeanMapperUtil;
 import com.rum.util.converter.BeanConverter;
 
@@ -71,6 +73,28 @@ public class PageListHelper {
             p = pb.getPaginator();
         }
         return p;
+    }
+
+    public static <T> PageResult<T> createPageResult(List<T> list) {
+        PageResult<T> pageResult = new PageResult();
+        if (list instanceof PageList) {
+            PageList<T> pl = (PageList<T>) list;
+            Paginator paginator = pl.getPaginator();
+            pageResult.setPage(paginator.getPage());
+            pageResult.setLimit(paginator.getLimit());
+            pageResult.setTotalCount(paginator.getTotalCount());
+        }
+        pageResult.setData(Lists.newArrayList(list));
+        return pageResult;
+    }
+
+    public static <T> PageResult<T> createPageResult(List<T> list, Paginator paginator) {
+        PageResult<T> pageResult = new PageResult();
+        pageResult.setPage(paginator.getPage());
+        pageResult.setLimit(paginator.getLimit());
+        pageResult.setTotalCount(paginator.getTotalCount());
+        pageResult.setData(Lists.newArrayList(list));
+        return pageResult;
     }
 
 }

@@ -6,6 +6,7 @@ package com.rum.facade;
 
 import com.rum.bean.RestResult;
 import com.rum.facade.param.UserQueryParam;
+import com.rum.facade.vo.UserView;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UserFacade {
 
     @RequestMapping(value = "/query", method = RequestMethod.POST)
-    RestResult queryUsers(@RequestBody UserQueryParam param);
+    RestResult<UserView> queryUsers(@RequestBody UserQueryParam param);
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     RestResult deleteUser(@RequestParam("userId") Integer userId);
