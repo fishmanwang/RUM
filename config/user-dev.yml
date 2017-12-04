@@ -9,8 +9,6 @@ mybatis:
   mapperLocations: classpath:mapper/*.xml
 
 spring:
-    application:
-      name: user-service
     datasource:
         name: rum-ds
         url: jdbc:mysql://localhost:3306/rum?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
