@@ -2,8 +2,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://rum:8761/eureka/
-server:
-  port: 8762
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
