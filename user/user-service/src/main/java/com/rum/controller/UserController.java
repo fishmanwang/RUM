@@ -8,6 +8,7 @@ import com.mybatis.domain.PageBounds;
 import com.mybatis.domain.Paginator;
 import com.mybatis.util.PageListHelper;
 import com.rum.bean.RestResult;
+import com.rum.bean.UserBean;
 import com.rum.facade.UserFacade;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.vo.UserView;
@@ -17,6 +18,8 @@ import com.rum.util.BeanMapperUtil;
 import com.rum.utils.PageBoundsHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -31,6 +34,9 @@ public class UserController implements UserFacade {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserBean    userBean;
+
     @Override
     public RestResult<UserView> queryUsers(@RequestBody(required = true) UserQueryParam param) {
         PageBounds pb = PageBoundsHelper.create(param);
@@ -39,6 +45,12 @@ public class UserController implements UserFacade {
         List<UserView> rs = BeanMapperUtil.mapList(ds, UserView.class);
 
         return RestResult.ok(PageListHelper.createPageResult(rs, p));
+    }
+
+    @RequestMapping(value = "/hi", method = RequestMethod.GET)
+    public RestResult<String> query() {
+        System.out.println(userBean.getFoo());
+        return RestResult.ok(userBean.getFoo());
     }
 
     @Override
