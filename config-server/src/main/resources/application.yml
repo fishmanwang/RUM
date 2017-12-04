@@ -1,10 +1,12 @@
 spring:
   application:
     admin: config-server
-
-spring:
   cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/fishmanwang/spring-cloud-std
+      config:
+        server:
+          git:
+            uri: https://github.com/fishmanwang/RUM
+            searchPaths: config
+            label: master
+            username:
+            password:
