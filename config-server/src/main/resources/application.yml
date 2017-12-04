@@ -1,0 +1,10 @@
+spring:
+  application:
+    admin: config-server
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/fishmanwang/spring-cloud-std
