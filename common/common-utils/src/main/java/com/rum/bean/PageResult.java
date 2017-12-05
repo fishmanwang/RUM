@@ -25,14 +25,14 @@ public class PageResult<T> {
     /**
      * 总记录数
      */
-    private int     totalCount;
+    private int     total;
 
     private List<T> data;
 
     public PageResult() {
         page = 1;
         limit = 10;
-        totalCount = 0;
+        total = 0;
     }
 
     public int getLimit() {
@@ -51,12 +51,12 @@ public class PageResult<T> {
         this.page = page;
     }
 
-    public int getTotalCount() {
-        return totalCount;
+    public int getTotal() {
+        return total;
     }
 
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
+    public void setTotal(int total) {
+        this.total = total;
     }
 
     public List<T> getData() {

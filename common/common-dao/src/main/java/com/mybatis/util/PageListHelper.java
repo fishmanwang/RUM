@@ -82,7 +82,7 @@ public class PageListHelper {
             Paginator paginator = pl.getPaginator();
             pageResult.setPage(paginator.getPage());
             pageResult.setLimit(paginator.getLimit());
-            pageResult.setTotalCount(paginator.getTotalCount());
+            pageResult.setTotal(paginator.getTotalCount());
         }
         pageResult.setData(Lists.newArrayList(list));
         return pageResult;
@@ -92,7 +92,7 @@ public class PageListHelper {
         PageResult<T> pageResult = new PageResult();
         pageResult.setPage(paginator.getPage());
         pageResult.setLimit(paginator.getLimit());
-        pageResult.setTotalCount(paginator.getTotalCount());
+        pageResult.setTotal(paginator.getTotalCount());
         pageResult.setData(Lists.newArrayList(list));
         return pageResult;
     }

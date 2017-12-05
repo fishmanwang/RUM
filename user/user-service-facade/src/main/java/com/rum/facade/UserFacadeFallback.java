@@ -4,9 +4,12 @@
  */
 package com.rum.facade;
 
+import com.rum.bean.RestDataResult;
+import com.rum.bean.RestPageResult;
 import com.rum.bean.RestResult;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.vo.UserView;
+import com.rum.util.RestResultUtil;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,8 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserFacadeFallback implements UserFacade {
 
     @Override
-    public RestResult<UserView> queryUsers(@RequestBody(required = false) UserQueryParam param) {
-        return RestResult.fail(101, "查询用户失败");
+    public RestPageResult<UserView> queryUsers(@RequestBody UserQueryParam param) {
+        return RestResultUtil.buildFailRestPageResult(101, "查询用户失败");
+    }
+
+    @Override
+    public RestDataResult<String> hi() {
+        return RestResultUtil.buildFailRestDataResult(102, "打招呼失败");
     }
 
     @Override

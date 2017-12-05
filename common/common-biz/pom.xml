@@ -3,22 +3,24 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>parent</artifactId>
+        <artifactId>common</artifactId>
         <groupId>com.rum</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>common-biz</artifactId>
 
-    <modules>
-        <module>common-utils</module>
-        <module>common-dao</module>
-        <module>common-web</module>
-        <module>common-biz</module>
-    </modules>
+    <dependencies>
+        
+        <dependency>
+            <groupId>com.rum</groupId>
+            <artifactId>common-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+    </dependencies>
 
 
 </project>

@@ -4,8 +4,11 @@
  */
 package com.rum.controller;
 
+import com.rum.bean.RestDataResult;
+import com.rum.bean.RestPageResult;
 import com.rum.bean.RestResult;
 import com.rum.facade.param.UserQueryParam;
+import com.rum.facade.vo.UserView;
 import com.rum.integration.UserFacadeRefactor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,16 +35,16 @@ public class HelloController extends AbstractController {
     private UserFacadeRefactor userFacade;
 
     @RequestMapping(value = "hello", method = RequestMethod.GET)
-    public String index() {
+    public RestDataResult<String> index() {
         //        logger.info(client.getAllKnownRegions().toString());
-        return "Hello Spring Cloud";
+        return userFacade.hi();
     }
 
     @RequestMapping(value = "/hello/{name}", method = RequestMethod.GET)
     public RestResult sayHello(@PathVariable("name") String name) {
         UserQueryParam param = new UserQueryParam(getPageInfo());
         param.setName(name);
-        RestResult result = userFacade.queryUsers(param);
+        RestPageResult<UserView> result = userFacade.queryUsers(param);
         return result;
     }
 }

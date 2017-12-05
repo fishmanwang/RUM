@@ -13,6 +13,6 @@ import org.springframework.cloud.netflix.feign.FeignClient;
  * @author tjwang
  * @version $Id: UserFacadeRefactor.java, v 0.1 2017/11/29 0029 14:53 tjwang Exp $
  */
-@FeignClient(value = "user-service", fallback = UserFacadeFallback.class)
+@FeignClient(value = "user", fallback = UserFacadeFallback.class)
 public interface UserFacadeRefactor extends UserFacade {
 }
