@@ -10,6 +10,7 @@ import com.rum.bean.RestResult;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.vo.UserView;
 import com.rum.util.RestResultUtil;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author tjwang
  * @version $Id: UserFacadeFallback.java, v 0.1 2017/11/29 0029 14:24 tjwang Exp $
  */
+@Component
 public class UserFacadeFallback implements UserFacade {
 
     @Override

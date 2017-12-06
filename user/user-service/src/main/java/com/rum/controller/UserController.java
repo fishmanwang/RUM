@@ -43,6 +43,7 @@ public class UserController implements UserFacade {
         return RestResultUtil.buildRestPageResult(PageListHelper.createPageResult(rs, p));
     }
 
+    @Override
     public RestDataResult<String> hi() {
         //        try {
         //            Thread.sleep(RandomUtils.nextLong(1000, 5000));
