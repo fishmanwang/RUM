@@ -9,8 +9,6 @@ import com.rum.bean.RestPageResult;
 import com.rum.facade.UserFacade;
 import com.rum.facade.param.UserQueryParam;
 import com.rum.facade.vo.UserView;
-import com.rum.integration.TestService;
-import com.rum.util.RestResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +25,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController extends AbstractController {
 
-    private Logger      logger = LoggerFactory.getLogger(getClass());
+    private Logger     logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private UserFacade  userFacade;
-
-    @Autowired
-    private TestService testService;
+    private UserFacade userFacade;
 
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     public RestDataResult<String> index() {
@@ -49,8 +44,4 @@ public class HelloController extends AbstractController {
         return result;
     }
 
-    @RequestMapping(value = "/hello/test", method = RequestMethod.GET)
-    public RestDataResult<String> helloTest() {
-        return RestResultUtil.buildRestDataResult(testService.test());
-    }
 }
